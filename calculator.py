@@ -8,7 +8,7 @@ root.resizable(False, False)
 root.config(bg="#000000")
 
 expression = ""
-sci_mode = False  # Scientific mode flag
+sci_mode = False  
 
 def press(num):
     global expression
@@ -35,9 +35,9 @@ def toggle_sci():
     sci_mode = not sci_mode
 
     if sci_mode:
-        frame.pack_forget()   # hide normal pad
-        sci_frame.pack(fill="both", expand=True)  # show full scientific pad
-        toggle_button.config(text="STD")  # change button name
+        frame.pack_forget()  
+        sci_frame.pack(fill="both", expand=True)  
+        toggle_button.config(text="STD")  
     else:
         sci_frame.pack_forget()
         frame.pack()
@@ -62,7 +62,7 @@ btn_style = {
     "borderwidth": 0
 }
 
-# ================= NORMAL KEYS ==================
+
 buttons = [
     ("C", clear, "#A5A5A5", "black"), ("+/-", lambda: press("-"), "#A5A5A5", "black"), ("%", lambda: press("%"), "#A5A5A5", "black"), ("/", lambda: press("/"), "white", "black"),
     ("7", lambda: press("7"), "#333333", "white"), ("8", lambda: press("8"), "#333333", "white"), ("9", lambda: press("9"), "#333333", "white"), ("*", lambda: press("*"), "white", "black"),
@@ -89,7 +89,7 @@ for text, cmd, bg, fg in buttons:
         c = 0
         r += 1
 
-# ================= SCIENTIFIC KEYS ==================
+
 sci_frame = tk.Frame(root, bg="#000000")
 
 sci_buttons = [
@@ -109,7 +109,6 @@ for text, cmd in sci_buttons:
         c = 0
         r += 1
 
-# Mode Toggle Button
 toggle_button = tk.Button(root, text="SCI", command=toggle_sci, bg="#111", fg="white", font=("Arial", 14))
 toggle_button.pack(pady=5)
 
